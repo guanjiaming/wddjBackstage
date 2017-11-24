@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>订单投诉</title>
+    <!-- 引入样式库 -->
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-datetime/bootstrap-datetimepicker.min.css">
+    <!-- 引入自己的样式 -->
+    <link rel="stylesheet" href="style/css/main.css">
+
+</head>
+<body id="orderComplaints">
+<!-- 顶部通栏 -->
+<div class="row topInfo">
+    <div class="header">
+        <div class="logo">
+            <img src="images/wdlogo.png" class="logo">
+            <h2>微东到家运营后台</h2>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <!-- 左侧菜单 -->
+    <div class="menu">
+        <div class="btn-group-vertical" role="group">
+            <button type="button" class="btn btn-default" onclick="javascript:window.location.href='userManagement.html'">认证管理</button>
+            <button type="button" class="btn btn-info">投诉订单</button>
+            <button type="button" class="btn btn-default" onclick="javascript:window.location.href='cashManagement.html'">提现管理</button>
+        </div>
+    </div>
+    <!--  右侧内容区域  -->
+    <div class="main">
+        <!-- 当前位置 -->
+        <div class="currentLocation">
+            <p>订单管理 / 投诉订单</p>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="container">
+            <div class="row">
+                <!--  搜索这一栏  -->
+                <div class="col-md-12 search">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="searchOrderNum">订单编号</label>
+                            <input type="text" class="form-control" id="searchOrderNum" placeholder="请输入订单编号">
+                        </div>
+                        <div class="form-group">
+                            <label for="searchUserNum">用户编号</label>
+                            <input type="text" class="form-control" id="searchUserNum" placeholder="请输入用户编号">
+                        </div>
+                        <div class="form-group">
+                            <label for="searchOrderStatus">订单状态</label>
+                            <select class="form-control" name="searchOrderStatus" id="searchOrderStatus">
+                                <option value="1">进行中</option>
+                                <option value="0">已完成</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="searchOrderTime">时间</label>
+                            <div class='input-group date' id='searchOrderTime'>
+                                <input type='text' class="form-control"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="searchBtn btn btn-primary">搜索</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!--  表单内容部分  -->
+                <div class="col-md-12">
+                    <div class="tableWrap">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>订单编号</th>
+                                <th>用户编号</th>
+                                <th>发件地址</th>
+                                <th>发件人-姓名-电话</th>
+                                <th>收件地址</th>
+                                <th>收件人-姓名-电话</th>
+                                <th>物品类型</th>
+                                <th>信誉要求</th>
+                                <th>重量(kg)</th>
+                                <th>距离(km)</th>
+                                <th>价格(元)</th>
+                                <th>优惠</th>
+                                <th>加价(元)</th>
+                                <th>保价(元)</th>
+                                <th>实付款(元)</th>
+                                <th>支付方式</th>
+                                <th>发单时间</th>
+                                <th>取件时间</th>
+                                <th>接单时间</th>
+                                <th>送件人-姓名-电话</th>
+                                <th>取出时间</th>
+                                <th>送达时间</th>
+                                <th>投诉时间</th>
+                                <th>投诉原因</th>
+                                <th>订单状态</th>
+                                <th>处理结果</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!--<tr>-->
+                                <!--<td class="orderNum">231003211</td>-->
+                                <!--<td>000001</td>-->
+                                <!--<td>北京市东城区广渠家园24号楼3单元210</td>-->
+                                <!--<td>王柏成-13J41Q96AAA</td>-->
+                                <!--<td>北京市东城区广渠家园24号楼3单元210</td>-->
+                                <!--<td>刘鹏宇-13J41Q96AAA</td>-->
+                                <!--<td>数码产品</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>2</td>-->
+                                <!--<td>15</td>-->
+                                <!--<td>30</td>-->
+                                <!--<td>无</td>-->
+                                <!--<td>无</td>-->
+                                <!--<td>无</td>-->
+                                <!--<td>30</td>-->
+                                <!--<td>微信支付</td>-->
+                                <!--<td>2017/11/06 12：00</td>-->
+                                <!--<td>立即取件</td>-->
+                                <!--<td>2017/11/06  12：00</td>-->
+                                <!--<td>王小明-15941234567</td>-->
+                                <!--<td>2017/11/06  12：00</td>-->
+                                <!--<td>2017/11/06  12：00</td>-->
+                                <!--<td>2017/11/06  12：00</td>-->
+                                <!--<td>言语辱骂，物品损坏</td>-->
+                                <!--<td>处理中</td>-->
+                                <!--<td>扣除10信誉分</td>-->
+                                <!--<td><button type="button" class="detailBtn btn btn-primary btn-xs">详情</button></td>-->
+                            <!--</tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 分页内容 -->
+                <div class="col-md-12">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">上一页</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">下一页</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- 引入公共组件库  -->
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-datetime/moment-with-locales.min.js"></script>
+<script src="lib/bootstrap-datetime/bootstrap-datetimepicker.min.js"></script>
+<script src="js/orderComplaints.js"></script>
+<script>
+
+</script>
+</body>
+</html>

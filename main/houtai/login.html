@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>微东到家运营后台登录</title>
+    <!-- 引入样式库 -->
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-datetime/bootstrap-datetimepicker.min.css">
+    <!-- 引入自己的样式 -->
+    <link rel="stylesheet" href="style/css/main.css">
+
+</head>
+<body>
+
+<div id="app" class="container">
+    <!--  logo  -->
+    <div class="logo">
+        <img src="images/wdlogo.png" alt="logo">
+    </div>
+    <!--  登录面板  -->
+    <div class="panel panel-default">
+        <div class="panel-heading">微东到家运营系统</div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="username" class="col-sm-2 control-label">账号</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="username" placeholder="请输入账号" v-model="username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" placeholder="请输入密码"
+                               v-model="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-primary loginBtn">登 录</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 引入公共组件库  -->
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script>
+    $('.loginBtn').click(function () {
+        window.location.href='userManagement.html'
+    })
+</script>
+</body>
+</html>
